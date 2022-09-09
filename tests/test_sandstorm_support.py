@@ -14,17 +14,17 @@ def ds():
         ({}, None),
         (
             {"X-Sandstorm-User-Id": "1", "X-Sandstorm-Username": "ab%20c"},
-            {"id": "1", "username": "ab c"},
+            {"id": "1", "username": "ab c", "permissions": []},
         ),
         (
             {
-                "X-Sandstorm-Permissions": "permissions",
+                "X-Sandstorm-Permissions": "a,b",
                 "X-Sandstorm-Preferred-Handle": "preferred_handle",
                 "X-Sandstorm-User-Picture": "picture",
                 "X-Sandstorm-User-Pronouns": "pronouns",
             },
             {
-                "permissions": "permissions",
+                "permissions": ["a", "b"],
                 "preferred_handle": "preferred_handle",
                 "picture": "picture",
                 "pronouns": "pronouns",
