@@ -1,4 +1,5 @@
 from datasette import hookimpl
+from urllib.parse import unquote
 
 MAPPING = (
     ("X-Sandstorm-Username", "username"),
@@ -8,6 +9,7 @@ MAPPING = (
     ("X-Sandstorm-User-Picture", "picture"),
     ("X-Sandstorm-User-Pronouns", "pronouns"),
 )
+PERCENT_DECODE = {"X-Sandstorm-Username"}
 
 
 @hookimpl
@@ -16,5 +18,7 @@ def actor_from_request(request):
     for header, key in MAPPING:
         value = request.headers.get(header.lower())
         if value:
+            if header in PERCENT_DECODE:
+                value = unquote(value)
             actor[key] = value
     return actor or None

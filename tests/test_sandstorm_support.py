@@ -13,8 +13,8 @@ def ds():
     (
         ({}, None),
         (
-            {"X-Sandstorm-User-Id": "1", "X-Sandstorm-Username": "abc"},
-            {"id": "1", "username": "abc"},
+            {"X-Sandstorm-User-Id": "1", "X-Sandstorm-Username": "ab%20c"},
+            {"id": "1", "username": "ab c"},
         ),
         (
             {
