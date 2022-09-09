@@ -15,7 +15,7 @@ Install this plugin in the same environment as Datasette.
 
 ## Usage
 
-Usage instructions go here.
+This plugin is part of [datasette-sandstorm](https://github.com/ocdtrekkie/datasette-sandstorm).
 
 ## Development
 
