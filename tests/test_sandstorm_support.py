@@ -36,3 +36,21 @@ async def test_actor_from_headers(ds, headers, expected):
     response = await ds.client.get("/-/actor.json", headers=headers)
     assert response.status_code == 200
     assert response.json() == {"actor": expected}
+
+
+@pytest.mark.asyncio
+@pytest.mark.parametrize(
+    "datasette_action,sandstorm_permission,should_pass",
+    (
+        ("upload-csvs", "write", True),
+        ("upload-csvs", "read", False),
+        ("upload-dbs", "write", True),
+        ("upload-dbs", "read", False),
+        ("something-random", "write", False),
+    ),
+)
+async def test_permissions(ds, datasette_action, sandstorm_permission, should_pass):
+    check = await ds.permission_allowed(
+        actor={"permissions": [sandstorm_permission]}, action=datasette_action
+    )
+    assert check == should_pass
