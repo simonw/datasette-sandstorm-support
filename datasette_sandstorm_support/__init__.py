@@ -12,8 +12,8 @@ PERCENT_DECODE = {"X-Sandstorm-Username"}
 
 PERMISSIONS_MAPPING = {
     # Datasette permessions -> required Sandstorm permission
-    "upload-csvs": "write",
-    "upload-dbs": "write",
+    "upload-csvs": "edit",
+    "upload-dbs": "edit",
 }
 
 

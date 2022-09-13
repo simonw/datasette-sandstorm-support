@@ -42,11 +42,11 @@ async def test_actor_from_headers(ds, headers, expected):
 @pytest.mark.parametrize(
     "datasette_action,sandstorm_permission,should_pass",
     (
-        ("upload-csvs", "write", True),
+        ("upload-csvs", "edit", True),
         ("upload-csvs", "read", False),
-        ("upload-dbs", "write", True),
+        ("upload-dbs", "edit", True),
         ("upload-dbs", "read", False),
-        ("something-random", "write", False),
+        ("something-random", "edit", False),
     ),
 )
 async def test_permissions(ds, datasette_action, sandstorm_permission, should_pass):
