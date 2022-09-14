@@ -11,7 +11,14 @@ ACTOR_MAPPING = (
 PERCENT_DECODE = {"X-Sandstorm-Username"}
 
 PERMISSIONS_MAPPING = {
-    # Datasette permessions -> required Sandstorm permission
+    # Datasette permissions -> required Sandstorm permission
+    "permissions-debug": "admin",
+    "debug-menu": "admin",
+    "configure-fts": "admin",
+    "datasette-write": "edit",
+    "edit-schema": "edit",
+    "edit-tiddlywiki": "edit",
+    "insert:all": "edit",
     "upload-csvs": "edit",
     "upload-dbs": "edit",
 }
